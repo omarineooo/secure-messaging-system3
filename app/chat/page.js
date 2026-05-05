@@ -52,7 +52,7 @@ export default function ChatPage() {
 
     const fetchUsers = async (myUsername) => {
         try {
-            const res = await fetch('/api/users')
+            const res = await fetch('/api/users', { cache: 'no-store' })
             const data = await res.json()
             setUsers(data.filter(u => u.username !== myUsername))
             setLoading(false)
@@ -62,7 +62,7 @@ export default function ChatPage() {
     const fetchMessages = async () => {
         if (!selectedContact) return
         try {
-            const res = await fetch(`/api/messages/inbox?username=${currentUser.username}`)
+            const res = await fetch(`/api/messages/inbox?username=${currentUser.username}`, { cache: 'no-store' })
             const data = await res.json()
             if (!Array.isArray(data)) return
             const filtered = data.filter(m =>
