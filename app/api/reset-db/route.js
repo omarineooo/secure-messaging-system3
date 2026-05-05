@@ -13,7 +13,8 @@ export async function GET() {
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 username TEXT UNIQUE NOT NULL,
                 password_hash TEXT NOT NULL,
-                public_key TEXT NOT NULL
+                public_key TEXT NOT NULL,
+                private_key TEXT NOT NULL
             );
         `);
 
