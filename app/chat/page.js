@@ -200,16 +200,12 @@ export default function ChatPage() {
                     .chat-app-container {
                         display: grid;
                         grid-template-columns: 320px 1fr;
-                        gap: 20px;
-                        height: calc(100vh - 180px);
+                        height: calc(100vh - 120px);
                         width: 100%;
                     }
 
                     /* Sidebar */
                     .contacts-sidebar {
-                        background: var(--panel);
-                        border: 1px solid var(--line);
-                        border-radius: 24px;
                         display: flex;
                         flex-direction: column;
                         overflow: hidden;
@@ -244,9 +240,7 @@ export default function ChatPage() {
 
                     /* Viewport */
                     .chat-viewport {
-                        background: var(--panel);
-                        border: 1px solid var(--line);
-                        border-radius: 24px;
+                        border-left: 1px solid var(--line);
                         display: flex;
                         flex-direction: column;
                         overflow: hidden;
@@ -298,7 +292,7 @@ export default function ChatPage() {
                             height: calc(100vh - 120px); 
                             width: 100%;
                             position: relative;
-                            overflow: hidden;
+                            border-radius: 0;
                         }
                         .contacts-sidebar { 
                             width: 100%; 
@@ -306,6 +300,7 @@ export default function ChatPage() {
                             position: absolute;
                             z-index: 10;
                             transition: transform 0.3s ease;
+                            background: var(--panel);
                         }
                         .is-chat-open .contacts-sidebar { transform: translateX(-100%); }
                         
@@ -316,6 +311,8 @@ export default function ChatPage() {
                             z-index: 5;
                             transform: translateX(100%);
                             transition: transform 0.3s ease;
+                            background: var(--panel);
+                            border-left: none;
                         }
                         .is-chat-open .chat-viewport { transform: translateX(0); z-index: 20; }
                         
