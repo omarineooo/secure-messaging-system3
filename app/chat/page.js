@@ -168,7 +168,7 @@ export default function ChatPage() {
                                                 </button>
                                             </div>
                                             <div className="msg-time">
-                                                {new Date(msg.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                                                {new Date(msg.time + 'Z').toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                                             </div>
                                         </motion.div>
                                     ))}
@@ -274,8 +274,8 @@ export default function ChatPage() {
                     .is-theirs { align-self: flex-start; align-items: flex-start; }
                     
                     .msg-bubble { padding: 12px 18px; border-radius: 20px; position: relative; width: fit-content; max-width: 100%; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-                    .is-mine .msg-bubble { background: linear-gradient(135deg, #0ea5e9, #2563eb); color: #fff; border-bottom-right-radius: 4px; }
-                    .is-theirs .msg-bubble { background: rgba(56, 189, 248, 0.08); border: 1px solid var(--line); border-bottom-left-radius: 4px; }
+                    .is-mine .msg-bubble { background: linear-gradient(135deg, #0ea5e9, #2563eb); color: #fff; border-bottom-right-radius: 4px; border: none; }
+                    .is-theirs .msg-bubble { background: #1e293b; border: 1px solid #334155; border-bottom-left-radius: 4px; }
                     
                     .msg-content { font-size: 14px; word-break: break-all; line-height: 1.6; }
                     .is-theirs .msg-content { color: var(--text); }
