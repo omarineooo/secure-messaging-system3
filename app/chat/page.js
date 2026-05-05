@@ -94,7 +94,7 @@ export default function ChatPage() {
 
     return (
         <div className="container">
-            <div className={`chat-app-container ${selectedContact ? 'is-chat-open' : ''}`}>
+            <div className={`panel chat-app-container ${selectedContact ? 'is-chat-open' : ''}`} style={{ padding: 0, overflow: 'hidden' }}>
                 {/* Contacts Sidebar */}
                 <div className="contacts-sidebar">
                     <div className="sidebar-header">
