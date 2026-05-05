@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server';
 import db from '@/lib/db';
 
+export const dynamic = 'force-dynamic'; // Prevent Next.js from caching this route
+
 export async function GET() {
-    export const dynamic = 'force-dynamic'; // Prevent Next.js from caching this route
     try {
         const users = db.prepare(`
             SELECT id, username, 
