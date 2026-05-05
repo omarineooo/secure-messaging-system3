@@ -16,7 +16,7 @@ export async function GET(request) {
         const messages = db.prepare(`
             SELECT * FROM messages 
             WHERE sender_username = ? OR receiver_username = ?
-            ORDER BY timestamp ASC
+            ORDER BY time ASC
         `).all(username, username);
 
         return NextResponse.json(messages.map(m => ({
@@ -25,7 +25,7 @@ export async function GET(request) {
             receiver: m.receiver_username,
             ciphertext: m.ciphertext,
             plaintext: '*********', // Decryption logic is on the client
-            time: m.timestamp,
+            time: m.time,
             isMine: m.sender_username === username
         })));
     } catch (error) {
