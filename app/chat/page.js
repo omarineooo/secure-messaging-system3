@@ -274,7 +274,7 @@ export default function ChatPage() {
                     .is-theirs { align-self: flex-start; align-items: flex-start; }
                     
                     .msg-bubble { padding: 12px 18px; border-radius: 20px; position: relative; width: fit-content; max-width: 100%; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-                    .is-mine .msg-bubble { background: linear-gradient(135deg, #0ea5e9, #2563eb); color: #fff; border-bottom-right-radius: 4px; border: none; }
+                    .is-mine .msg-bubble { background: #0ea5e9; color: #fff; border-bottom-right-radius: 4px; border: none; }
                     .is-theirs .msg-bubble { background: #1e293b; border: 1px solid #334155; border-bottom-left-radius: 4px; }
                     
                     .msg-content { font-size: 14px; word-break: break-all; line-height: 1.6; }
