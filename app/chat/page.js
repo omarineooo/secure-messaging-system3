@@ -36,10 +36,13 @@ export default function ChatPage() {
     }, [])
 
     useEffect(() => {
+        let interval;
         if (selectedContact && currentUser) {
             fetchMessages()
+            interval = setInterval(fetchMessages, 3000)
         }
-    }, [selectedContact])
+        return () => clearInterval(interval)
+    }, [selectedContact, currentUser])
 
     useEffect(() => {
         if (scrollRef.current) {
@@ -94,7 +97,7 @@ export default function ChatPage() {
 
     return (
         <div className="container">
-            <div className={`panel chat-app-container ${selectedContact ? 'is-chat-open' : ''}`} style={{ padding: 0, overflow: 'hidden' }}>
+            <div className={`chat-app-container ${selectedContact ? 'is-chat-open' : ''}`}>
                 {/* Contacts Sidebar */}
                 <div className="contacts-sidebar">
                     <div className="sidebar-header">
@@ -200,12 +203,16 @@ export default function ChatPage() {
                     .chat-app-container {
                         display: grid;
                         grid-template-columns: 320px 1fr;
+                        gap: 20px;
                         height: calc(100vh - 120px);
                         width: 100%;
                     }
 
                     /* Sidebar */
                     .contacts-sidebar {
+                        background: var(--panel);
+                        border: 1px solid var(--line);
+                        border-radius: 24px;
                         display: flex;
                         flex-direction: column;
                         overflow: hidden;
@@ -240,7 +247,9 @@ export default function ChatPage() {
 
                     /* Viewport */
                     .chat-viewport {
-                        border-left: 1px solid var(--line);
+                        background: var(--panel);
+                        border: 1px solid var(--line);
+                        border-radius: 24px;
                         display: flex;
                         flex-direction: column;
                         overflow: hidden;
