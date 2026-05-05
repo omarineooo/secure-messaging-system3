@@ -43,24 +43,24 @@ export default function Navbar() {
 
             <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
                 <Link href="/" className={pathname === '/' ? 'active' : ''}>Home</Link>
-                <Link href="/project" className={pathname === '/project' ? 'active' : ''}>Project Analysis</Link>
-                <Link href="/team" className={pathname === '/team' ? 'active' : ''}>Contributors</Link>
+                <Link href="/project" className={pathname === '/project' ? 'active' : ''}>About Project</Link>
+                <Link href="/team" className={pathname === '/team' ? 'active' : ''}>Members</Link>
 
                 {user ? (
                     <>
-                        <Link href="/chat" className={pathname === '/chat' ? 'active' : ''}>Secure Chat</Link>
+                        <Link href="/chat" className={pathname === '/chat' ? 'active' : ''}>Chats</Link>
                         <Link href="/security" className={pathname === '/security' ? 'active' : ''}>Dashboard</Link>
                         <div className="user-section">
                             <span className="user-tag">
                                 <Lock size={12} /> {user.username}
                             </span>
                             <button onClick={handleLogout} className="logout-btn">
-                                Disconnect
+                                Logout
                             </button>
                         </div>
                     </>
                 ) : (
-                    <Link href="/login" className={pathname === '/login' ? 'active' : ''}>Access System</Link>
+                    <Link href="/login" className={pathname === '/login' ? 'active' : ''}>Login</Link>
                 )}
             </nav>
 
